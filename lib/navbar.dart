@@ -1,3 +1,4 @@
+import 'package:farmerconnect/Register.dart';
 import 'package:farmerconnect/soil.dart';
 import 'package:farmerconnect/weather.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _navBarState extends State<navBar> {
   };
     final List<Widget> _widgetOptions = <Widget>[
     
-    const homeScreen(),
+    const Register(),
     const soilInfo(),
     const wetaherReport(),
     const conatctUs(),
