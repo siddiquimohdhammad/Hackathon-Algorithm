@@ -53,7 +53,7 @@ class _ExploreState extends State<Explore> {
           InkWell(
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Fertilizer()));
+                  MaterialPageRoute(builder: (context) => crops()));
             },
             child: Container(
               alignment: Alignment.center,
