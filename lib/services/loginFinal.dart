@@ -34,7 +34,7 @@ class _LoginState extends State<Login> {
               },
               controller: _emailController,
               decoration: InputDecoration(
-                labelText: 'Email',
+                labelText: 'mail',
               ),
             ),
             TextFormField(

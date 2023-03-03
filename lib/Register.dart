@@ -1,4 +1,5 @@
 import 'package:farmerconnect/navbar.dart';
+import 'package:farmerconnect/services/SignUpOrganization.dart';
 
 import 'package:farmerconnect/services/loginFinal.dart';
 
@@ -37,7 +38,7 @@ class _RegisterState extends State<Register> {
             )
           ]),
         ),
-        body: TabBarView(children: [SignUp(), Login(), Farmer1(context)]),
+        body: TabBarView(children: [SignUp(), Login(),SignUpOrg()]),
       ),
     );
   }
