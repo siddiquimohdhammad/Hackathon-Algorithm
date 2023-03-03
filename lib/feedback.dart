@@ -25,10 +25,12 @@ class _FeedbackFormState extends State<FeedbackForm> {
 
        appBar: AppBar(
         // centerTitle: true,
+        title: Text("Feedback"),
         titleSpacing: 0,
         leading: Icon(
-          Icons.account_circle_outlined,
-          color: Colors.black,
+          
+          Icons.feedback_rounded,
+          color: Colors.white,
           size: MediaQuery.of(context).size.height * 0.05,
         ),
       ),
@@ -42,11 +44,16 @@ class _FeedbackFormState extends State<FeedbackForm> {
                 child: TextFormField(
                   controller: namecontroller,
                   decoration: InputDecoration(
-                    labelText: "Name",
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                  ),
+                            errorBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                )),
+                            hintText: 'Enter Name',
+                            hintStyle: TextStyle(fontFamily: "Montserrat"),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7))),
                   
                 ),
               ),
@@ -57,12 +64,16 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   keyboardType: TextInputType.number,
                   controller: mobilecontroller,
                   decoration: InputDecoration(
-                    
-                    labelText: "Mobile Number",
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                  ),
+                            errorBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                )),
+                            hintText: 'Enter Phone Number',
+                            hintStyle: TextStyle(fontFamily: "Montserrat"),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7))),
                   
                 ),
               ),
@@ -72,12 +83,17 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   maxLines: null,
                   controller: addresscontroller,
                   // obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: "Address",
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                  ),
+                 decoration: InputDecoration(
+                            errorBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                )),
+                            hintText: 'Enter Adress',
+                            hintStyle: TextStyle(fontFamily: "Montserrat"),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7))),
                   
                 ),
               ),
@@ -88,11 +104,16 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   controller: descriptioncontroller,
                   // obscureText: true,
                   decoration: InputDecoration(
-                    labelText: "Description",
-                    fillColor: Colors.white,
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 2.0)),
-                  ),
+                            errorBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(4)),
+                                borderSide: BorderSide(
+                                  width: 1,
+                                )),
+                            hintText: 'Description',
+                            hintStyle: TextStyle(fontFamily: "Montserrat"),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(7))),
                  
                 ),
               ),
@@ -100,6 +121,7 @@ class _FeedbackFormState extends State<FeedbackForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+
                   ElevatedButton(
                     onPressed: ()  async{
                       
@@ -112,8 +134,15 @@ class _FeedbackFormState extends State<FeedbackForm> {
                       }).then((value) => print("added"));
 
                     },
-                    child: const Text('Create'),
+                    child: const Text('Submit'),
+                  style: ElevatedButton.styleFrom(
+    shape: BeveledRectangleBorder(
+      borderRadius: BorderRadius.circular(12)
+    ),
+  ),
                   ),
+
+
   ],
               ),
             ],
