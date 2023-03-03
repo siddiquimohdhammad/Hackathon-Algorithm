@@ -11,16 +11,16 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
-  int choiceIndex=1;
-  Map<String, double> dataMap={
-    "Rice":17,
-    "Pulses":13.3,
-    "Wheat":11,
-    "Bajra":10.14,
-    "Corn":10.12,
+  int choiceIndex = 1;
+  Map<String, double> dataMap = {
+    "Rice": 17,
+    "Pulses": 13.3,
+    "Wheat": 11,
+    "Bajra": 10.14,
+    "Corn": 10.12,
   };
 
-  List<Color> colorlist=[
+  List<Color> colorlist = [
     Color.fromARGB(255, 47, 239, 149),
     Color.fromARGB(255, 250, 191, 62),
     Color.fromARGB(255, 113, 244, 73),
@@ -31,13 +31,13 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Farmer Connect'),
+        title: Text('Farmer connect'),
       ),
-     body: PieChart(
-      dataMap: dataMap,
-      colorList: colorlist,
-      chartRadius: MediaQuery.of(context).size.width/2,
-      centerText: "Crop",
+      body: PieChart(
+        dataMap: dataMap,
+        colorList: colorlist,
+        chartRadius: MediaQuery.of(context).size.width / 2,
+        centerText: "Crop",
       ),
     );
   }
