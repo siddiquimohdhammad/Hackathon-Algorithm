@@ -1,3 +1,4 @@
+import 'package:farmerconnect/Explore/crops.dart';
 import 'package:farmerconnect/Explore/fertilizer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -75,8 +76,8 @@ class _ExploreState extends State<Explore> {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Fertilizer()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => crops()));
             },
             child: Container(
               alignment: Alignment.center,
