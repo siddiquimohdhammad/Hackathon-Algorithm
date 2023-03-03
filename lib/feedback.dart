@@ -10,12 +10,7 @@ class FeedbackForm extends StatefulWidget {
 
 class _FeedbackFormState extends State<FeedbackForm> {
   CollectionReference StudentInfo = FirebaseFirestore.instance.collection('StudentInfo');
-  // details.add(dataToSave);
-  // late String  Name;
-  // late String SId;
-  // late String Programid;
-  // late String gpa;
-  // late String Mobnum;
+ 
 
   TextEditingController namecontroller = new TextEditingController();
   TextEditingController addresscontroller = new TextEditingController();
@@ -25,7 +20,9 @@ class _FeedbackFormState extends State<FeedbackForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+
+      drawer: Drawer(),
+
        appBar: AppBar(
         // centerTitle: true,
         titleSpacing: 0,
