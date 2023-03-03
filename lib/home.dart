@@ -14,7 +14,7 @@ class _homeScreenState extends State<homeScreen> {
   int choiceIndex=1;
   Map<String, double> dataMap={
     "Rice":17,
-    "Pulses":13.2,
+    "Pulses":13.3,
     "Wheat":11,
     "Bajra":10.14,
     "Corn":10.12,
