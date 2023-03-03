@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 import '../navbar.dart';
-import 'Login.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -13,16 +13,28 @@ class _SignUpState extends State<SignUp> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
 
   FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  String _username = '';
   String _email = '';
   String _password = '';
 
-  createUser({email, password}) async {
+  void createUser({email, password, username}) async {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
+
+      // Store user data in Firestore
+      await _firestore.collection('Users').doc(userCredential.user!.uid).set({
+        'username': username,
+        'email': email,
+        'password': password,
+      });
     } catch (e) {
       print(e);
     }
@@ -35,6 +47,12 @@ class _SignUpState extends State<SignUp> {
         key: _formKey,
         child: Column(
           children: <Widget>[
+            TextFormField(
+              controller: _usernameController,
+              decoration: InputDecoration(
+                labelText: 'Username',
+              ),
+            ),
             TextFormField(
               validator: (input) {
                 if (input!.isEmpty) {
@@ -60,17 +78,24 @@ class _SignUpState extends State<SignUp> {
               ),
               obscureText: true,
             ),
+            TextFormField(
+              validator: (input) {
+                if (input != _passwordController.text) {
+                  return 'Passwords do not match';
+                }
+                return null;
+              },
+              controller: _confirmPasswordController,
+              decoration: InputDecoration(
+                labelText: 'Confirm Password',
+              ),
+              obscureText: true,
+            ),
             ElevatedButton(
               onPressed: () {
-                SignUp();
+                signUp();
               },
               child: Text('Sign UP'),
-            ),
-            IconButton(
-              onPressed: () {
-             signIns(context);
-              },
-              icon: Icon(Icons.abc),
             ),
           ],
         ),
@@ -78,14 +103,16 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  void SignUp() async {
+  void signUp() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
       try {
         _email = _emailController.text.trim();
         _password = _passwordController.text.trim();
-        createUser(email: _email, password: _password);
+        _username = _usernameController.text.trim();
+
+        createUser(email: _email, password: _password, username: _username);
 
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => navBar()));
@@ -95,48 +122,3 @@ class _SignUpState extends State<SignUp> {
     }
   }
 }
-
-
-
- Widget signIns(BuildContext context) {
-   var emailController = TextEditingController();
-  var passwordController = TextEditingController();
-
-  FirebaseAuth auth = FirebaseAuth.instance;
-
-  loginUser({email, password}) async {
-    try {
-      await auth.signInWithEmailAndPassword(email: email, password: password);
-    } catch (e) {
-      print(e);
-    }
-  }
-    return Container(
-        child: Form(
-            child: Column(
-      children: [
-        Text('data'),
-        TextFormField(
-          decoration: InputDecoration(hintText: "Name"),
-        ),
-        TextFormField(
-          controller: emailController,
-          decoration: InputDecoration(hintText: "Email"),
-        ),
-        Center(
-          child: TextFormField(
-            controller: passwordController,
-            decoration: InputDecoration(hintText: "Password"),
-          ),
-        ),
-        IconButton(
-            onPressed: () async {
-              await loginUser(
-                  email: emailController, password: passwordController);
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => navBar()));
-            },
-            icon: Icon(Icons.done)),
-      ],
-    )));
-  }
