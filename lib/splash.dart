@@ -1,18 +1,14 @@
-
-
 import 'package:farmerconnect/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class splashScreen extends StatefulWidget {
-
   @override
   State<splashScreen> createState() => _splashScreenState();
 }
 
 class _splashScreenState extends State<splashScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
@@ -20,15 +16,15 @@ class _splashScreenState extends State<splashScreen> {
     _navigatetohome();
   }
 
-  _navigatetohome()async{
-    await Future.delayed(Duration(seconds: 2),(){});
+  _navigatetohome() async {
+    await Future.delayed(Duration(seconds: 2), () {});
     Navigator.pushReplacement(
-      this.context, MaterialPageRoute(builder: (context)=>Register()) );
+        this.context, MaterialPageRoute(builder: (context) => Register()));
   }
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
+    return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -40,7 +36,7 @@ class _splashScreenState extends State<splashScreen> {
         // color: Colors.green.shade300,
         child: Center(
           child: Container(
-            height:MediaQuery.of(context).size. height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.2,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

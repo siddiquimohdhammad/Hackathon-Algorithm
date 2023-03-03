@@ -48,28 +48,28 @@ class _ExploreState extends State<Explore> {
           SizedBox(
             height: height * 0.02,
           ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Fertilizer()));
-            },
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                "Soil ",
-                style: TextStyle(fontSize: 35),
-              ),
-              height: height * 0.13,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color.fromARGB(255, 189, 255, 7),
-                  Colors.green.shade200,
-                ]),
-                color: Colors.brown,
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-          ),
+          // InkWell(
+          //   onTap: () {
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (context) => Fertilizer()));
+          //   },
+          //   child: Container(
+          //     alignment: Alignment.center,
+          //     child: Text(
+          //       "Soil ",
+          //       style: TextStyle(fontSize: 35),
+          //     ),
+          //     height: height * 0.13,
+          //     decoration: BoxDecoration(
+          //       gradient: LinearGradient(colors: [
+          //         Color.fromARGB(255, 189, 255, 7),
+          //         Colors.green.shade200,
+          //       ]),
+          //       color: Colors.brown,
+          //       borderRadius: BorderRadius.circular(20),
+          //     ),
+          //   ),
+          // ),
           SizedBox(
             height: height * 0.02,
           ),
@@ -81,7 +81,7 @@ class _ExploreState extends State<Explore> {
             child: Container(
               alignment: Alignment.center,
               child: Text(
-                "crop",
+                "Crop",
                 style: TextStyle(fontSize: 35),
               ),
               height: height * 0.13,
