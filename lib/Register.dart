@@ -1,3 +1,4 @@
+import 'package:farmerconnect/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -29,8 +30,10 @@ class _RegisterState extends State<Register> {
           ]),
         ),
         body: TabBarView(children: [
-          Center(child: Text('farmer'),),
-          Center(child: Text('organization'),)
+          Farmer(context),
+          Center(
+            child: Text('organization'),
+          )
         ]),
       ),
     );
@@ -38,12 +41,22 @@ class _RegisterState extends State<Register> {
 }
 
 
-Widget build(BuildContext context){
+Widget Farmer(BuildContext context) {
   return Container(
-   child: Form(child: Column(
-    children: [
-      Text('data'),
-    ],
-   )),
+    child: Form(
+        child: Column(
+      children: [
+        Text('data'),
+        IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                 MaterialPageRoute(builder: (context)=>navBar())
+                 );
+            },
+            icon:Icon(Icons.done) ),
+      ],
+    )),
   );
 }
+
