@@ -1,6 +1,4 @@
 import 'package:farmerconnect/navbar.dart';
-import 'package:farmerconnect/services/SignUpOrganization.dart';
-
 import 'package:farmerconnect/services/loginFinal.dart';
 
 import 'package:farmerconnect/services/finalSign.dart';
