@@ -20,7 +20,7 @@ class soilInfo extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.0),  
           ),  
           color: Color.fromARGB(255, 113, 255, 88),  
-          elevation: 10,  
+          elevation: 9,  
           child: Column(  
             mainAxisSize: MainAxisSize.min,  
             children: <Widget>[  
