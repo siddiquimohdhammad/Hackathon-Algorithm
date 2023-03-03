@@ -8,7 +8,10 @@ class wetaherReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Weather Report"),),
+      appBar: AppBar(
+        backgroundColor: Colors.green.shade500,
+        title: Text("Weather Report"),
+      ),
     );
   }
 }
