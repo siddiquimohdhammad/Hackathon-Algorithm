@@ -32,7 +32,7 @@ class _RegisterState extends State<Register> {
             )
           ]),
         ),
-        body: TabBarView(children: [LoginPage(), 
+        body: TabBarView(children: [SignUp(), 
         Farmer1(context)]),
       ),
     );
