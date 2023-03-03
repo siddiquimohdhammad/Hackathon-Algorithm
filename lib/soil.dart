@@ -1,10 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class soilInfo extends StatelessWidget {
+class soilInfo extends StatefulWidget {
   const soilInfo({Key? key}) : super(key: key);
 
+  @override
+  State<soilInfo> createState() => _soilInfoState();
+}
+
+class _soilInfoState extends State<soilInfo> {
+  var firestoreDB=FirebaseFirestore.instance.collection('crops').snapshots();
   @override
   Widget build(BuildContext context) {
    return Scaffold(
@@ -15,7 +22,7 @@ class soilInfo extends StatelessWidget {
         width: 450,  
         height: 300,  
         padding: new EdgeInsets.all(10.0),  
-        child: Card(  
+        child: Card( 
           shape: RoundedRectangleBorder(  
             borderRadius: BorderRadius.circular(15.0),  
           ),  
@@ -38,7 +45,7 @@ class soilInfo extends StatelessWidget {
               ButtonBar(  
                 children: <Widget>[  
                   ElevatedButton(  
-                    child: const Text('Play'),  
+                    child: const Text('Read'),  
                     onPressed: () {/* ... */},  
                   ),  
                     
