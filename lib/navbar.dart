@@ -1,4 +1,5 @@
 import 'package:farmerconnect/Register.dart';
+import 'package:farmerconnect/explore.dart';
 import 'package:farmerconnect/soil.dart';
 import 'package:farmerconnect/weather.dart';
 import 'package:flutter/material.dart';
@@ -19,13 +20,14 @@ class _bottomNavState extends State<navBar> {
   int currentIndex = 0;
   final screen = [
     homeScreen(),
-    soilInfo(),
+    Explore(),
     wetaherReport(),
     conatctUs(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.green.shade500,
       body: IndexedStack(
         index: currentIndex,
         children: screen,
@@ -33,9 +35,9 @@ class _bottomNavState extends State<navBar> {
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color.fromARGB(245, 50, 153, 38),
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.white,
+          backgroundColor: Colors.green.shade500,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.amber.shade300,
           onTap: (index) => setState(() => currentIndex = index),
           items: [
             BottomNavigationBarItem(
@@ -47,12 +49,16 @@ class _bottomNavState extends State<navBar> {
               label: 'Explore',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_box_outlined),
-              label: 'Create',
+              icon: Image.network(
+                "https://cdn-icons-png.flaticon.com/512/9231/9231625.png",
+                width: 50,
+                height: 30,
+              ),
+              label: 'Weather',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.control_point_duplicate),
-              label: 'contract',
+              label: 'contact',
             ),
           ]),
     );

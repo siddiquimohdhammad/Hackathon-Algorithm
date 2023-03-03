@@ -31,6 +31,7 @@ class _homeScreenState extends State<homeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green.shade500,
         title: Text('Farmer connect'),
       ),
       body: PieChart(
