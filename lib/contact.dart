@@ -17,6 +17,7 @@ class _conatctUsState extends State<conatctUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green.shade500,
         leading: Icon(Icons.contact_page_rounded),
         title: Text("Contact Us"),
         actions: [
