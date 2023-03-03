@@ -1,4 +1,5 @@
 import 'package:farmerconnect/navbar.dart';
+import 'package:farmerconnect/services/Auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -9,6 +10,8 @@ class Register extends StatefulWidget {
   @override
   State<Register> createState() => _RegisterState();
 }
+
+
 
 class _RegisterState extends State<Register> {
   @override
@@ -29,19 +32,14 @@ class _RegisterState extends State<Register> {
             )
           ]),
         ),
-        body: TabBarView(children: [
-          Farmer(context),
-          Center(
-            child: Text('organization'),
-          )
-        ]),
+        body: TabBarView(children: [LoginPage(), 
+        Farmer1(context)]),
       ),
     );
   }
 }
 
-
-Widget Farmer(BuildContext context) {
+Widget Farmer1(BuildContext context) {
   return Container(
     child: Form(
         child: Column(
@@ -50,11 +48,9 @@ Widget Farmer(BuildContext context) {
         IconButton(
             onPressed: () {
               Navigator.push(
-                context,
-                 MaterialPageRoute(builder: (context)=>navBar())
-                 );
+                  context, MaterialPageRoute(builder: (context) => navBar()));
             },
-            icon:Icon(Icons.done) ),
+            icon: Icon(Icons.done)),
       ],
     )),
   );
