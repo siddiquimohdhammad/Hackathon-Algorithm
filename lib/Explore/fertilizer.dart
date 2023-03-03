@@ -13,7 +13,7 @@ class _FertilizerState extends State<Fertilizer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabBar(tabs: []),
+      
     );
   }
 }

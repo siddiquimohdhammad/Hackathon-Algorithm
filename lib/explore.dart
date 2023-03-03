@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import 'Explore/crops.dart';
+
 class Explore extends StatefulWidget {
   const Explore({super.key});
 
@@ -75,23 +77,29 @@ class _ExploreState extends State<Explore> {
           ),
           InkWell(
             onTap: () {
+              // Navigator.push(context,
+                  // MaterialPageRoute(builder: (context) => Fertilizer()));
+            },
+            child: InkWell(
+              onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => Fertilizer()));
             },
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                "crop",
-                style: TextStyle(fontSize: 35),
-              ),
-              height: height * 0.13,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color.fromARGB(255, 189, 255, 7),
-                  Colors.green.shade200,
-                ]),
-                color: Colors.brown,
-                borderRadius: BorderRadius.circular(20),
+              child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  "crop",
+                  style: TextStyle(fontSize: 35),
+                ),
+                height: height * 0.13,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    Color.fromARGB(255, 189, 255, 7),
+                    Colors.green.shade200,
+                  ]),
+                  color: Colors.brown,
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
             ),
           ),
