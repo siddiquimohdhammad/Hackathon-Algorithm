@@ -19,7 +19,7 @@ class soilInfo extends StatelessWidget {
           shape: RoundedRectangleBorder(  
             borderRadius: BorderRadius.circular(15.0),  
           ),  
-          color: Color.fromARGB(255, 113, 255, 88),  
+          color: Color.fromARGB(255, 113, 255, 89),  
           elevation: 9,  
           child: Column(  
             mainAxisSize: MainAxisSize.min,  
