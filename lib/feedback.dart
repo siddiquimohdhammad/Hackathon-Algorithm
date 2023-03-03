@@ -9,8 +9,8 @@ class FeedbackForm extends StatefulWidget {
 }
 
 class _FeedbackFormState extends State<FeedbackForm> {
-  CollectionReference StudentInfo = FirebaseFirestore.instance.collection('StudentInfo');
-
+  CollectionReference StudentInfo =
+      FirebaseFirestore.instance.collection('StudentInfo');
 
   TextEditingController namecontroller = new TextEditingController();
   TextEditingController addresscontroller = new TextEditingController();
@@ -21,14 +21,12 @@ class _FeedbackFormState extends State<FeedbackForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(),
-
-
-       appBar: AppBar(
+      appBar: AppBar(
+        backgroundColor: Colors.green.shade500,
         // centerTitle: true,
         title: Text("Feedback"),
         titleSpacing: 0,
         leading: Icon(
-          
           Icons.feedback_rounded,
           color: Colors.white,
           size: MediaQuery.of(context).size.height * 0.05,
@@ -44,17 +42,15 @@ class _FeedbackFormState extends State<FeedbackForm> {
                 child: TextFormField(
                   controller: namecontroller,
                   decoration: InputDecoration(
-                            errorBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                )),
-                            hintText: 'Enter Name',
-                            hintStyle: TextStyle(fontFamily: "Montserrat"),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(7))),
-                  
+                      errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(
+                            width: 1,
+                          )),
+                      hintText: 'Enter Name',
+                      hintStyle: TextStyle(fontFamily: "Montserrat"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7))),
                 ),
               ),
               Padding(
@@ -64,17 +60,15 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   keyboardType: TextInputType.number,
                   controller: mobilecontroller,
                   decoration: InputDecoration(
-                            errorBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                )),
-                            hintText: 'Enter Phone Number',
-                            hintStyle: TextStyle(fontFamily: "Montserrat"),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(7))),
-                  
+                      errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(
+                            width: 1,
+                          )),
+                      hintText: 'Enter Phone Number',
+                      hintStyle: TextStyle(fontFamily: "Montserrat"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7))),
                 ),
               ),
               Padding(
@@ -83,18 +77,16 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   maxLines: null,
                   controller: addresscontroller,
                   // obscureText: true,
-                 decoration: InputDecoration(
-                            errorBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                )),
-                            hintText: 'Enter Adress',
-                            hintStyle: TextStyle(fontFamily: "Montserrat"),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(7))),
-                  
+                  decoration: InputDecoration(
+                      errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(
+                            width: 1,
+                          )),
+                      hintText: 'Enter Adress',
+                      hintStyle: TextStyle(fontFamily: "Montserrat"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7))),
                 ),
               ),
               Padding(
@@ -104,46 +96,37 @@ class _FeedbackFormState extends State<FeedbackForm> {
                   controller: descriptioncontroller,
                   // obscureText: true,
                   decoration: InputDecoration(
-                            errorBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4)),
-                                borderSide: BorderSide(
-                                  width: 1,
-                                )),
-                            hintText: 'Description',
-                            hintStyle: TextStyle(fontFamily: "Montserrat"),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(7))),
-                 
+                      errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(4)),
+                          borderSide: BorderSide(
+                            width: 1,
+                          )),
+                      hintText: 'Description',
+                      hintStyle: TextStyle(fontFamily: "Montserrat"),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(7))),
                 ),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-
                   ElevatedButton(
-                    onPressed: ()  async{
-                      
+                    onPressed: () async {
                       await StudentInfo.add({
                         'name': namecontroller.text,
                         'Mobile Number': mobilecontroller.text,
                         'Address': addresscontroller.text,
                         'Description': descriptioncontroller.text,
-                       
                       }).then((value) => print("added"));
-
                     },
                     child: const Text('Submit'),
-                  style: ElevatedButton.styleFrom(
-    shape: BeveledRectangleBorder(
-      borderRadius: BorderRadius.circular(12)
-    ),
-  ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green.shade500,
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
                   ),
-
-
-  ],
+                ],
               ),
             ],
           ),
