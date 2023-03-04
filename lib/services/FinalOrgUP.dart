@@ -1,39 +1,40 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../navbar.dart';
+import '../navbar2.dart';
 
-class SignUpOrg extends StatefulWidget {
+
+class temporg extends StatefulWidget {
   @override
-  _SignUpOrgState createState() => _SignUpOrgState();
+  _temporgState createState() => _temporgState();
 }
 
-class _SignUpOrgState extends State<SignUpOrg> {
+class _temporgState extends State<temporg> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _orgNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-  final TextEditingController _OrganizationName = TextEditingController();
 
   FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  String _organizationName = '';
+  String _orgName = '';
   String _email = '';
   String _password = '';
+  String _confirmPassword = '';
 
-  void createUser({email, password, OrganizationName}) async {
+  createUser({orgName, email, password}) async {
     try {
-      UserCredential userCredential = await _auth
-          .createUserWithEmailAndPassword(email: email, password: password);
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
 
-      // Store user data in Firestore
-      await _firestore.collection('Organization').doc(userCredential.user!.uid).set({
-        'username': OrganizationName,
+      await _firestore.collection('Agency').doc(userCredential.user!.uid).set({
+        'orgName': orgName,
         'email': email,
-        'password': password,
+        'password': password
       });
     } catch (e) {
       print(e);
@@ -48,9 +49,15 @@ class _SignUpOrgState extends State<SignUpOrg> {
         child: Column(
           children: <Widget>[
             TextFormField(
-              controller: _OrganizationName,
+              validator: (input) {
+                if (input!.isEmpty) {
+                  return 'Please enter your organization name';
+                }
+                return null;
+              },
+              controller: _orgNameController,
               decoration: InputDecoration(
-                labelText: 'OrganizationName',
+                labelText: 'Organization Name',
               ),
             ),
             TextFormField(
@@ -95,7 +102,7 @@ class _SignUpOrgState extends State<SignUpOrg> {
               onPressed: () {
                 signUp();
               },
-              child: Text('Sign UP'),
+              child: Text('Sign Up'),
             ),
           ],
         ),
@@ -108,14 +115,16 @@ class _SignUpOrgState extends State<SignUpOrg> {
       _formKey.currentState!.save();
 
       try {
+        _orgName = _orgNameController.text.trim();
         _email = _emailController.text.trim();
         _password = _passwordController.text.trim();
-        _organizationName = _OrganizationName.text.trim();
+        _confirmPassword = _confirmPasswordController.text.trim();
 
-        createUser(email: _email, password: _password, OrganizationName: _OrganizationName);
+        createUser(
+            orgName: _orgName, email: _email, password: _password);
 
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => navBar()));
+            context, MaterialPageRoute(builder: (context) => navBar2()));
       } catch (e) {
         print(e.toString());
       }

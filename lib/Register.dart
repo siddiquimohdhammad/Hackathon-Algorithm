@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import 'services/FinalOrgUP.dart';
+
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -38,25 +40,9 @@ class _RegisterState extends State<Register> {
             )
           ]),
         ),
-        body: TabBarView(children: [SignUp(), Login(),SignUpOrg()]),
+        body: TabBarView(children: [SignUp(), Login(),temporg()]),
       ),
     );
   }
 }
 
-Widget Farmer1(BuildContext context) {
-  return Container(
-    child: Form(
-        child: Column(
-      children: [
-        Text('data'),
-        IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => navBar()));
-            },
-            icon: Icon(Icons.done)),
-      ],
-    )),
-  );
-}
