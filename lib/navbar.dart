@@ -5,6 +5,7 @@ import 'package:farmerconnect/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'Weather/api.dart';
 
 import 'contact.dart';
 import 'home.dart';
@@ -21,7 +22,7 @@ class _bottomNavState extends State<navBar> {
   final screen = [
     homeScreen(),
     Explore(),
-    wetaherReport(),
+    WeatherWidget(),
     conatctUs(),
   ];
   @override
@@ -57,7 +58,7 @@ class _bottomNavState extends State<navBar> {
               label: 'Weather',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.control_point_duplicate),
+              icon: Icon(Icons.contacts),
               label: 'contact',
             ),
           ]),

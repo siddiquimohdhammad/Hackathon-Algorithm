@@ -50,7 +50,7 @@ class _cropsState extends State<crops> {
               ),
             ],
           ),
-          title: Text('Fertilizers'),
+          title: Text('Crops'),
           
         ),
         body: TabBarView(children: [

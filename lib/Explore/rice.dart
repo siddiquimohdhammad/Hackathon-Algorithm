@@ -13,14 +13,13 @@ class riceData extends StatelessWidget {
         children:[ 
           Card(
               elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
+              
               child: ListTile(
-                leading: Image.asset("assets/images/rice.jpg"),
-                title: Text("TrustBasket Bio Organic Manure - 1 Kg"),
+                leading: Image.asset("assets/images/kolam.jpg"),
+                title: Text("Kolam Rice"),
                 subtitle: Text(
-                  "₹: 249",
+                  "Creamy White: Rs 25/Kg,"
+                  "White: Rs 48/Kg",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -33,9 +32,9 @@ class riceData extends StatelessWidget {
               ),
               child: ListTile(
                 leading: Image.asset("assets/images/rice.jpg"),
-                title: Text("TrustBasket Bio Organic Manure - 1 Kg"),
+                title: Text("Basmati Rice"),
                 subtitle: Text(
-                  "₹: 249",
+                  "₹: 180",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -47,10 +46,10 @@ class riceData extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: ListTile(
-                leading: Image.asset("assets/images/rice.jpg"),
-                title: Text("TrustBasket Bio Organic Manure - 1 Kg"),
+                leading: Image.asset("assets/images/blackrice.jpg"),
+                title: Text("Black Rice - 1 Kg"),
                 subtitle: Text(
-                  "₹: 249",
+                  "₹: 324",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
